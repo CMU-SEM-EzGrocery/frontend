@@ -1,14 +1,20 @@
 import React from 'react';
 import { Text, StyleSheet, View, Button, TouchableOpacity } from 'react-native';
 
-const HomeScreen = ({ navigation }) => {
+const LoginScreen = () => {
   return (
     <View>
-      <Text style={styles.text}>HomeScreen</Text>
-      <Text> EZGrocery </Text>
+      <Text style={styles.text}>EZGrocery</Text>
       <Text> Login with</Text>
-      <Button></Button>
-      <Button></Button>
+      <Button>YOUR PHONE</Button>
+      <Button>EMAIL</Button>
+      <Text>
+        Are you new? Register 
+        <Button>
+          here
+        </Button>
+      </Text>
+
     </View>
   );
 };
@@ -19,4 +25,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default HomeScreen;
+export default LoginScreen;
