@@ -1,11 +1,24 @@
 import React from 'react';
-import { Text, StyleSheet, View, Button, TouchableOpacity } from 'react-native';
+import { Text, StyleSheet, View, Image, Button, TouchableOpacity } from 'react-native';
+import { TextInput } from 'react-native-gesture-handler';
 
-const HomeScreen = ({ navigation }) => {
+const UserVerificationScreen = ({ navigation }) => {
   return (
     <View>
-      <Text style={styles.text}>HomeScreen</Text>
+      <Text >Identification Verify</Text>
+      <TextInput>Driver's Licence</TextInput>
       
+      <Text>ID Number</Text>
+      <TextInput style = {styles.input} 
+               autoCapitalize="none" 
+               onSubmitEditing={() => this.passwordInput.focus()} 
+               autoCorrect={false} 
+               keyboardType='email-address' 
+               returnKeyType="next" 
+               placeholder='ID Number' 
+               placeholderTextColor='rgba(225,225,225,0.7)'></TextInput>
+      
+      <Button title="Upload"></Button>
     </View>
   );
 };
@@ -16,4 +29,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default HomeScreen;
+export default UserVerificationScreen;
