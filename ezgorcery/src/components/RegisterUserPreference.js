@@ -8,6 +8,7 @@ const RegisterUserPreference = (props) => {
       <Text style={styles.label}>Language</Text>
       <TextInput style={styles.input}
         autoCapitalize="none"
+        onChangeText= {newValue => props.changeLanguage(newValue) } 
         onSubmitEditing={() => this.passwordInput.focus()}
         autoCorrect={false}
         keyboardType=''
@@ -19,6 +20,7 @@ const RegisterUserPreference = (props) => {
         autoCapitalize="none"
         onSubmitEditing={() => this.passwordInput.focus()}
         autoCorrect={false}
+        onChangeText= {newValue => props.changeCurrency(newValue) } 
         keyboardType=''
         returnKeyType="next"
         placeholder='Enter Currency'
@@ -28,6 +30,7 @@ const RegisterUserPreference = (props) => {
         autoCapitalize="none"
         onSubmitEditing={() => this.passwordInput.focus()}
         autoCorrect={false}
+        onChangeText= {newValue => props.changePreferredMarket(newValue) } 
         keyboardType=''
         returnKeyType="next"
         placeholder='Preferred Market'
@@ -36,6 +39,7 @@ const RegisterUserPreference = (props) => {
       <TextInput style={styles.input}
         autoCapitalize="none"
         onSubmitEditing={() => this.passwordInput.focus()}
+        onChangeText= {newValue => props.changePayMethod(newValue) }         
         autoCorrect={false}
         keyboardType=''
         returnKeyType="next"

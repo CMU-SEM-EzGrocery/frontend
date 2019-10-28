@@ -7,6 +7,9 @@ import HelloScreen from './src/screens/HelloScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import RegisterScreen from './src/screens/RegisterScreen';
 import MapScreen from './src/screens/MapScreen';
+import HistoryOrdersScreen from './src/screens/HistoryOrders';
+import DetailOrderScreen from './src/screens/DetailOrder'
+import DetailOrder from './src/screens/DetailOrder';
 
 const navigator = createStackNavigator(
   {
@@ -14,6 +17,8 @@ const navigator = createStackNavigator(
     Login: LoginScreen,
     Register: RegisterScreen,
     Map: MapScreen,
+    HistoryOrders: HistoryOrdersScreen,
+    Detail: DetailOrder,
   },
   {
     initialRouteName: 'Hello',
