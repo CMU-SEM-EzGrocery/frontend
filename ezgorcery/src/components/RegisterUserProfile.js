@@ -6,33 +6,50 @@ const RegisterUserProfile = (props) => {
     <View>
       <Text style={styles.text}>Tell us something about yourself</Text>
 
-      <Text>Document Type</Text>
+      <Text>First Name</Text>
       <TextInput style={styles.input}
         autoCapitalize="none"
         onSubmitEditing={() => this.passwordInput.focus()}
         autoCorrect={false}
         keyboardType=''
         returnKeyType="next"
-        placeholder='Drivers license'
+        onChangeText={newText => props.changeFirstName(newText)}
+        placeholder='First Name'
         placeholderTextColor='rgba(225,225,225,0.7)'></TextInput>
 
-      <Text>ID Number</Text>
+      <Text>Last Name</Text>
       <TextInput style={styles.input}
         autoCapitalize="none"
         onSubmitEditing={() => this.passwordInput.focus()}
         autoCorrect={false}
         keyboardType=''
         returnKeyType="next"
-        placeholder='Enter ID Number'
+        onChangeText={newText => props.changeLastName(newText)}
+        placeholder='Last Name'
         placeholderTextColor='rgba(225,225,225,0.7)'></TextInput>
 
-      <Text>Upload Verification ID</Text>
-      <TouchableOpacity onPress={this._onPressButton}>
-        {/* <Image
-          style={styles.button}
-          source={require('../../assets/verificationimage.ico')}
-        /> */}
-      </TouchableOpacity>
+      <Text>Phone Number</Text>
+      <TextInput style={styles.input}
+        autoCapitalize="none"
+        onSubmitEditing={() => this.passwordInput.focus()}
+        autoCorrect={false}
+        keyboardType=''
+        returnKeyType="next"
+        onChangeText={newText => props.changePhone(newText)}
+        placeholder='(xxx) xxx - xxxx'
+        placeholderTextColor='rgba(225,225,225,0.7)'></TextInput>
+
+      <Text>Password</Text>
+      <TextInput style={styles.input}
+        autoCapitalize="none"
+        onSubmitEditing={() => this.passwordInput.focus()}
+        autoCorrect={false}
+        keyboardType=''
+        returnKeyType="next"
+        onChangeText={newText => props.changePassword(newText)}
+        placeholder='Password'
+        secureTextEntry={true}
+        placeholderTextColor='rgba(225,225,225,0.7)'></TextInput>
         
       <Button
         onPress={() => props.toUserType()}
