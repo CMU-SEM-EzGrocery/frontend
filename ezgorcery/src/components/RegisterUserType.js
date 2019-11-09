@@ -30,7 +30,7 @@ const RegisterUserType = (props) => {
       
       <Image
           style={{width: 300, height: 200,alignContent:"center",marginLeft:40,}}
-          source={require('../../assets/usertype.png')}
+          source={require('../../assets/usertypepref.png')}
         /> 
       {/* <TouchableOpacity onPress={()=> props.navigation.navigate('UserProfile')} style={styles.buttonS}><Text>Next</Text></TouchableOpacity> */}
     </View>
