@@ -10,13 +10,13 @@ const HelloScreen = props => {
       <Text style={styles.headline}>EZGrocery</Text>
       <Text style={styles.label}> Login with</Text>
       <TouchableOpacity style={styles.buttonS} onPress={() => props.navigation.navigate('Login')}>
-        <Text style={styles.labelBtn}>PHONE</Text>
+        <Text style={styles.labelBtn}>Phone</Text>
       </TouchableOpacity>
       <TouchableOpacity 
         disabled={true} style={styles.buttonDisabled}
         onPress={()=> props.navigation.navigate('HistoryOrders')}
       >
-        <Text style={styles.labelBtn}>EMAIL</Text>
+        <Text style={styles.labelBtn}>Email</Text>
       </TouchableOpacity>
       <Text style={styles.labelAsk}>
         Are you new? Register now! 
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     fontWeight:'bold',  
   },
   buttonS: {
-    backgroundColor: 'green',
+    backgroundColor: '#15C872',
     borderColor: 'white',
     borderWidth: 2,
     borderRadius: 12,
@@ -85,6 +85,7 @@ const styles = StyleSheet.create({
     color:'#fff',
     width:"50%",
     marginLeft:100,
+    position:"relative"
     
   },
   buttonDisabled: {

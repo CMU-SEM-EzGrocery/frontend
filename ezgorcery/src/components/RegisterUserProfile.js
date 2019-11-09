@@ -4,7 +4,7 @@ import { Text, StyleSheet, View, Button, TouchableOpacity, TextInput } from 'rea
 const RegisterUserProfile = (props) => {
   return (
 
-    <View>
+    <View style={styles.container}>
       <Text style={styles.headline}>Tell us something about yourself</Text>
       <Text style={styles.label}>First Name</Text>
       <TextInput style={styles.input}
@@ -48,16 +48,14 @@ const RegisterUserProfile = (props) => {
         placeholder='Enter Password'
         placeholderTextColor='rgba(225,225,225,0.7)'></TextInput>
 
-      <Button
+      <TouchableOpacity
         style={styles.buttonS}
         onPress={() => props.toUserType()}
-        title="Go Back"
-      ></Button>
-      <Button
+      ><Text style={styles.labelBtn}>Go Back</Text></TouchableOpacity>
+      <TouchableOpacity
         style={styles.buttonS}
         onPress={() => props.toUserPreference()}
-        title="Next"
-      ></Button>
+      ><Text style={styles.labelBtn}>Next</Text></TouchableOpacity>
     </View>
   );
 };
@@ -67,22 +65,23 @@ const styles = StyleSheet.create({
     fontSize: 30
   },
   container: {
-    flex: 1,
+    // flex: 1,
     justifyContent: 'center',
-    marginBottom: 100,
+    marginTop: 50,
   },
   input: {
-    textAlign: 'left',
-    backgroundColor: 'grey',
-    borderColor: 'white',
+    textAlign:'left',
+    backgroundColor:'#F2F2F2',
+    borderColor: 'grey',
     borderWidth: 2,
-    borderRadius: 12,
-    color: '#fff',
+    borderRadius: 25,
+    color: 'black',
     fontSize: 14,
     fontWeight: 'bold',
     overflow: 'hidden',
-    padding: 10,
-    width: "95%",
+    padding:10,  
+    marginLeft:5,  
+    width:"90%",
   },
   headline: {
     fontSize: 20,
@@ -111,7 +110,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   buttonS: {
-    backgroundColor: 'green',
+    backgroundColor: '#15C872',
     borderColor: 'white',
     borderWidth: 2,
     borderRadius: 12,

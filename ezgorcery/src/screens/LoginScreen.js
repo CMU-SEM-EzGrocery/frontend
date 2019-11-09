@@ -38,29 +38,23 @@ const LoginScreen = props => {
     </View>
   );
 };
-
-LoginScreen.navigationOptions = () => {
-  return {
-    header:null
-  };
-}
-
 const styles = StyleSheet.create({
   text: {
     fontSize: 80
   },
   input:{
     textAlign:'left',
-    backgroundColor:'grey',
-    borderColor: 'white',
+    backgroundColor:'#F2F2F2',
+    borderColor: 'grey',
     borderWidth: 2,
-    borderRadius: 12,
-    color: '#fff',
+    borderRadius: 25,
+    color: 'black',
     fontSize: 14,
     fontWeight: 'bold',
     overflow: 'hidden',
-    padding:10,    
-    width:"95%",
+    padding:10,  
+    marginLeft:5,  
+    width:"90%",
   },
   container:{
     flex:1,
@@ -88,7 +82,7 @@ const styles = StyleSheet.create({
     fontWeight:'bold',  
   },
   buttonS: {
-    backgroundColor: 'green',
+    backgroundColor: '#005AEE',
     borderColor: 'white',
     borderWidth: 2,
     borderRadius: 12,
@@ -106,7 +100,7 @@ const styles = StyleSheet.create({
     marginTop:20,    
   },
   buttonReg: {
-    backgroundColor: 'green',
+    backgroundColor: '#005AEE',
     borderColor: 'white',
     borderWidth: 2,
     borderRadius: 12,

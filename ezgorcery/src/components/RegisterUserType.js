@@ -7,24 +7,24 @@ const RegisterUserType = (props) => {
     <View style={styles.container}>
       <Text style={styles.label}>What do you want to be?</Text>
       <Text style={styles.labelSmall}>Requester or Helper?</Text>
-      
+      <Text></Text>
       <TouchableOpacity 
         onPress={() => {
           props.changeUserType('requester')
           props.toUserProfile()
         }
         } 
-        style={styles.buttonR}>
-        <Text style={styles.labelBtn1}>Requester</Text>
+        style={styles.buttonS}>
+        <Text style={styles.labelBtn}>Requester</Text>
       </TouchableOpacity>
-      
+      <Text></Text>
       <TouchableOpacity
         onPress={() => {
           props.changeUserType('helper')
           props.toUserProfile()
         }
         } 
-        style={styles.buttonH}>
+        style={styles.buttonS}>
         <Text style={styles.labelBtn}>Helper</Text>
       </TouchableOpacity>
       
@@ -41,10 +41,9 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 30
   },
-  // container: {
-  //   flex: 1,
-  //   justifyContent: 'center',
-  // },
+  container: {
+    marginTop:150,
+  },
   headline: {
     fontSize: 50,
     textAlign:"center",
@@ -52,19 +51,18 @@ const styles = StyleSheet.create({
     margin: 10,
     fontWeight:'bold',      
 },
-labelBtn1: {
-  fontSize: 20,
-  textAlign:"left",
-  fontWeight:'bold',
-  color:'white',
-  marginRight:-40,
-},
+// labelBtn1: {
+//   fontSize: 20,
+//   textAlign:"left",
+//   fontWeight:'bold',
+//   color:'white',
+//   marginRight:-40,
+// },
 labelBtn: {
   fontSize: 20,
   textAlign:"left",
   fontWeight:'bold',
   color:'white',
-  marginRight:20,
 },
   label: {
     fontSize: 20,
@@ -77,9 +75,45 @@ labelBtn: {
     textAlign:"left",
     marginLeft: 110, 
     fontWeight:'bold',  
-  },
-buttonR: {
-  backgroundColor: 'green',
+  },  
+// buttonR: {
+//   backgroundColor: 'green',
+//   borderColor: 'white',
+//   borderWidth: 2,
+//   borderRadius: 12,
+//   color: '#fff',
+//   fontSize: 14,
+//   fontWeight: 'bold',
+//   overflow: 'hidden',
+//   paddingLeft:58,
+//   paddingTop:20,
+//   paddingBottom:20,
+//   textAlign:'center',
+//   color:'#fff',
+//   width:"50%",
+//   marginLeft:100,
+//   marginBottom:50,
+//   marginTop:50,
+// },
+// buttonH: {
+//   backgroundColor: 'green',
+//   borderColor: 'white',
+//   borderWidth: 2,
+//   borderRadius: 12,
+//   color: '#fff',
+//   fontSize: 14,
+//   fontWeight: 'bold',
+//   overflow: 'hidden',
+//   paddingLeft:68,
+//   paddingTop:20,
+//   paddingBottom:20,
+//   textAlign:'center',
+//   color:'#fff',
+//   width:"50%",
+//   marginLeft:100,  
+// },
+buttonS: {
+  backgroundColor: '#15C872',
   borderColor: 'white',
   borderWidth: 2,
   borderRadius: 12,
@@ -87,34 +121,16 @@ buttonR: {
   fontSize: 14,
   fontWeight: 'bold',
   overflow: 'hidden',
-  paddingLeft:58,
+  paddingLeft:60,
   paddingTop:20,
   paddingBottom:20,
   textAlign:'center',
   color:'#fff',
   width:"50%",
   marginLeft:100,
-  marginTop:20,    
+  position:"relative"    
 },
-buttonH: {
-  backgroundColor: 'green',
-  borderColor: 'white',
-  borderWidth: 2,
-  borderRadius: 12,
-  color: '#fff',
-  fontSize: 14,
-  fontWeight: 'bold',
-  overflow: 'hidden',
-  paddingLeft:68,
-  paddingTop:20,
-  paddingBottom:20,
-  textAlign:'center',
-  color:'#fff',
-  width:"50%",
-  marginLeft:100,
-  marginTop:20,
-  
-},
+
 });
 
 export default RegisterUserType;
