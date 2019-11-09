@@ -24,11 +24,13 @@ const RegisterUserVerification = (props) => {
         returnKeyType="next"
         placeholder='ID Number'
         placeholderTextColor='rgba(225,225,225,0.7)'></TextInput>
+        <Text></Text>
 <TouchableOpacity
         // onPress={() => props.finishUpload()} 
         style={styles.buttonS}>
         <Text style={styles.labelBtn}>Upload</Text>
       </TouchableOpacity>
+      <Text></Text>
       <TouchableOpacity
         onPress={() => props.finishRegister()} 
         style={styles.buttonS}>
@@ -57,8 +59,10 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: 'bold',
     overflow: 'hidden',
-    padding:10,  
-    marginLeft:5,  
+    padding:10,
+    marginTop:10,
+    marginBottom:10,
+    marginLeft:20,  
     width:"90%",
   },
   headline: {
@@ -70,14 +74,14 @@ const styles = StyleSheet.create({
   },
   labelBtn: {
     fontSize: 20,
-    textAlign: "left",
+    textAlign: "center",
     fontWeight: 'bold',
     color: 'white',
   },
   label: {
     fontSize: 20,
     textAlign: "left",
-    marginLeft: 10,
+    marginLeft:25,
     fontWeight: 'bold',
   },
   labelSmall: {
@@ -87,22 +91,21 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   buttonS: {
-    backgroundColor: '#15C872',
+    backgroundColor: '#03a557',
     borderColor: 'white',
     borderWidth: 2,
-    borderRadius: 12,
+    borderRadius: 35,
     color: '#fff',
     fontSize: 14,
     fontWeight: 'bold',
     overflow: 'hidden',
-    paddingLeft: 80,
-    paddingTop: 20,
-    paddingBottom: 20,
+    paddingTop: 10,
+    paddingBottom: 10,
     textAlign: 'center',
     color: '#fff',
-    width: "50%",
-    marginLeft: 100,
-    marginTop: 20,
+    width:"70%",
+    marginLeft:60,
+    position:"relative"  
   },
 });
 

@@ -97,7 +97,7 @@ const MapScreen = props => {
 const styles = StyleSheet.create({
 
   buttonS: {
-    backgroundColor: 'green',
+    backgroundColor: '#03a557',
     borderColor: 'white',
     borderWidth: 2,
     borderRadius: 12,

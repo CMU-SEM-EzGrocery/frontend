@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, StyleSheet, View, Button, TouchableOpacity } from 'react-native';
+import { Text, StyleSheet, View,Image, Button, TouchableOpacity } from 'react-native';
 
 
 const RegisterUserType = (props) => {
@@ -28,10 +28,10 @@ const RegisterUserType = (props) => {
         <Text style={styles.labelBtn}>Helper</Text>
       </TouchableOpacity>
       
-      {/* <Image
-          style={{width: 50, height: 50}}
-          source={require('../../assets/usertype.PNG')}
-        />  */}
+      <Image
+          style={{width: 300, height: 200,alignContent:"center",marginLeft:40,}}
+          source={require('../../assets/usertype.png')}
+        /> 
       {/* <TouchableOpacity onPress={()=> props.navigation.navigate('UserProfile')} style={styles.buttonS}><Text>Next</Text></TouchableOpacity> */}
     </View>
   );
@@ -51,79 +51,33 @@ const styles = StyleSheet.create({
     margin: 10,
     fontWeight:'bold',      
 },
-// labelBtn1: {
-//   fontSize: 20,
-//   textAlign:"left",
-//   fontWeight:'bold',
-//   color:'white',
-//   marginRight:-40,
-// },
 labelBtn: {
   fontSize: 20,
-  textAlign:"left",
+  textAlign:"center",
   fontWeight:'bold',
   color:'white',
 },
   label: {
     fontSize: 20,
-    textAlign:"left",
-    marginLeft: 100, 
+    textAlign:"center",
     fontWeight:'bold',  
   },
   labelSmall: {
     fontSize: 20,
-    textAlign:"left",
-    marginLeft: 110, 
+    textAlign:"center",
     fontWeight:'bold',  
   },  
-// buttonR: {
-//   backgroundColor: 'green',
-//   borderColor: 'white',
-//   borderWidth: 2,
-//   borderRadius: 12,
-//   color: '#fff',
-//   fontSize: 14,
-//   fontWeight: 'bold',
-//   overflow: 'hidden',
-//   paddingLeft:58,
-//   paddingTop:20,
-//   paddingBottom:20,
-//   textAlign:'center',
-//   color:'#fff',
-//   width:"50%",
-//   marginLeft:100,
-//   marginBottom:50,
-//   marginTop:50,
-// },
-// buttonH: {
-//   backgroundColor: 'green',
-//   borderColor: 'white',
-//   borderWidth: 2,
-//   borderRadius: 12,
-//   color: '#fff',
-//   fontSize: 14,
-//   fontWeight: 'bold',
-//   overflow: 'hidden',
-//   paddingLeft:68,
-//   paddingTop:20,
-//   paddingBottom:20,
-//   textAlign:'center',
-//   color:'#fff',
-//   width:"50%",
-//   marginLeft:100,  
-// },
 buttonS: {
-  backgroundColor: '#15C872',
+  backgroundColor: '#03a557',
   borderColor: 'white',
   borderWidth: 2,
-  borderRadius: 12,
+  borderRadius: 35,
   color: '#fff',
   fontSize: 14,
   fontWeight: 'bold',
   overflow: 'hidden',
-  paddingLeft:60,
-  paddingTop:20,
-  paddingBottom:20,
+  paddingTop:10,
+  paddingBottom:10,
   textAlign:'center',
   color:'#fff',
   width:"50%",

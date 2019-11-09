@@ -25,7 +25,6 @@ const LoginScreen = props => {
                returnKeyType="next" 
                placeholder='Enter Password' 
                placeholderTextColor='rgba(225,225,225,0.7)'></TextInput>
-
         <TouchableOpacity  style={styles.buttonS}><Text style={styles.labelBtn}>Login</Text></TouchableOpacity>
         <TouchableOpacity  
           style={styles.buttonReg}
@@ -70,29 +69,27 @@ const styles = StyleSheet.create({
   },
   labelBtn: {
     fontSize: 20,
-    textAlign:"left",
-    marginLeft: -20, 
+    textAlign:"center",
     fontWeight:'bold',
     color:'white',
   },
   label: {
-    fontSize: 30,
+    fontSize: 20,
     textAlign:"left",
     padding: 10, 
     fontWeight:'bold',  
   },
   buttonS: {
-    backgroundColor: '#005AEE',
+    backgroundColor: '#03a557',
     borderColor: 'white',
     borderWidth: 2,
-    borderRadius: 12,
+    borderRadius: 35,
     color: '#fff',
     fontSize: 14,
     fontWeight: 'bold',
     overflow: 'hidden',
-    paddingLeft:80,
-    paddingTop:20,
-    paddingBottom:20,
+    paddingTop:10,
+    paddingBottom:10,
     textAlign:'center',
     color:'#fff',
     width:"40%",
@@ -103,19 +100,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#005AEE',
     borderColor: 'white',
     borderWidth: 2,
-    borderRadius: 12,
+    borderRadius: 35,
     color: '#fff',
     fontSize: 14,
     fontWeight: 'bold',
     overflow: 'hidden',
-    paddingLeft:70,
-    paddingTop:20,
-    paddingBottom:20,
+    paddingTop:10,
+    paddingBottom:10,
     textAlign:'center',
     color:'#fff',
     width:"40%",
     marginLeft:200,
-    marginTop:-70,    
+    marginTop:-45,    
   },
   linkStyle:{
     fontSize: 20,
