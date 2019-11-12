@@ -6,14 +6,12 @@ import { Image, SearchBar, Button, ListItem } from 'react-native-elements';
 import MapView from 'react-native-maps';
 
 // Import Context
-import { Context as BusinessContext } from '../../context/BusinessContext';
+
 
 // Import Components
 import MapForm from '../../components/Requesters/Map_Form';
 
 const MainRequestersScreen = props => {
-  
-  const { submitNewOrder } = useContext(BusinessContext);
 
   return (
     <View>

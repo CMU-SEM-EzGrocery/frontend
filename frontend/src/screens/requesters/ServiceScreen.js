@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Text, StyleSheet, View, TouchableOpacity, TextInput } from 'react-native';
 import { Image, SearchBar, Button, ListItem } from 'react-native-elements';
 
@@ -13,7 +13,7 @@ import DriverComing from '../../components/Requesters/DriverComing';
 
 const ServiceScreen = props => {
 
-  const { state, refreshForHelper } = useState(Context);
+  const { state } = useContext(Context);
 
   return (
     <View>

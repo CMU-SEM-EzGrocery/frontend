@@ -1,6 +1,7 @@
 import React from 'react';
-import { createAppContainer } from 'react-navigation';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { StyleSheet, Text, View } from 'react-native';
 
 // Import Context
@@ -24,40 +25,48 @@ import MainRequestersScreen from './src/screens/requesters/MainRequestersScreen'
 // Import Requester Related Pages
 import RatingScreen from './src/screens/requesters/RatingScreen';
 import HistoryOrdersScreen from './src/screens/requesters/HistoryOrdersScreen';
-import DetailOrderScreen from './src/screens/requesters/DetailOrder';
 import ServiceScreen from './src/screens/requesters/ServiceScreen';
 
 // Import Helper Related Pages
 
+// Import Setting Related Pages
+import AccountScreen from './src/screens/setting/AccountScreen';
 
-const navigator = createStackNavigator(
-  {
+const firstMainScreenFlow = createStackNavigator({
+  Main: MainScreen,
+  MainHelpers: MainHelpersScreen,
+  MainRequesters: MainRequestersScreen,
+  
+});
+
+const secondMainScreenFlow = createStackNavigator({
+  HistoryOrders: HistoryOrdersScreen,
+  Service: ServiceScreen,
+});
+
+
+const navigator = createSwitchNavigator({
     // Authentication Related Pages
-    Hello: HelloScreen,
-    Login: LoginScreen,
-    Register: RegisterScreen,
     ResolveAuth: ResolveAuthScreen,
-
+    loginFlow: createStackNavigator({
+      Hello: HelloScreen,
+      Login: LoginScreen,
+      Register: RegisterScreen,
+    }),  
     // Main Page
-    Main: MainScreen,
-    MainHelpers: MainHelpersScreen,
-    MainRequesters: MainRequestersScreen,
-
-    // Requester Related Pages
-    HistoryOrders: HistoryOrdersScreen,
-    Detail: DetailOrderScreen,
-    Service: ServiceScreen,
-
-    // Helper Related Pages
-
-  },
-  {
+    mainFlow: createBottomTabNavigator({
+      Map: firstMainScreenFlow,
+      // Requester Related Pages
+      Orders: secondMainScreenFlow,
+      // Helper Related Pages
+      Account: AccountScreen,
+    })
+  }, {
     initialRouteName: 'ResolveAuth',
     defaultNavigationOptions: {
       title: 'EzGrocery'
     }
-  }
-);
+});
 
 const App = createAppContainer(navigator)
 

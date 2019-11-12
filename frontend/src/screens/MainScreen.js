@@ -6,7 +6,6 @@ import { Context as AuthContext } from '../context/AuthContext';
 import mainHelperScreen from './helpers/MainHelpersScreen';
 import MainRequestersScreen from './requesters/MainRequestersScreen';
 
-
 const MainScreen = props => {
   const { state } = useContext(AuthContext);
 
@@ -16,14 +15,14 @@ const MainScreen = props => {
         Main Screen!
       </Text>
         {
-          state.userInfo.roleId == 1 ?
+          state.userInfo && state.userInfo.roleId == 1 ?
           (
             <MainRequestersScreen/>
           ) :
           null
         }    
         {
-          state.userInfo.roleId == 2 ?
+          state.userInfo && state.userInfo.roleId == 2 ?
           (
             <MainHelperScreen/>
           ) :

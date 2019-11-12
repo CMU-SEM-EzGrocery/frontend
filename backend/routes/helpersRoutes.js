@@ -13,7 +13,8 @@ router.get('/new', async (req, res) => {
 });
 
 router.post('/answer', async (req, res) => {
-  const { ans, taskid, user } = req.body;
+  const { ans, taskid } = req.body;
+  const user = req.user;
 
   if(ans) {
     await Order.updateOne({_id: mongoose.Types.ObjectId(taskid)}, {stepState: 2, helper: user});
@@ -24,7 +25,8 @@ router.post('/answer', async (req, res) => {
 });
 
 router.post('/coming', async (req, res) => {
-  const { ans, taskid, user } = req.body;
+  const { ans, taskid } = req.body;
+  const user = req.user;
 
   if(ans) {
     await Order.updateOne({_id: mongoose.Types.ObjectId(taskid)}, {stepState: 3, helper: user});

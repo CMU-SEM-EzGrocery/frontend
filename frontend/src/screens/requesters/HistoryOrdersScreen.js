@@ -1,44 +1,38 @@
-import React from 'react';
-import {  StyleSheet, View, Button, TouchableOpacity, TextInput, Image } from 'react-native';
+import React, { useContext } from 'react';
+import {  StyleSheet, View, Button, TouchableOpacity, TextInput, Image, FlatList } from 'react-native';
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { AuthSession, MapView, Location } from 'expo';
 import { Text, ListItem } from 'react-native-elements';
+import { NavigationEvents } from 'react-navigation';
 
-const HistoryOrdersScreen = props => {
+import { Context as BusinessContext } from '../../context/BusinessContext';
 
-  const list = [
-    {
-      name: 'Amy Farha',
-      avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-      subtitle: 'Vice President'
-    },
-    {
-      name: 'Chris Jackson',
-      avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-      subtitle: 'Vice Chairman'
-    },
-    ]
+const HistoryOrdersScreen = ({ navigation }) => {
+
+  const { state, updateOrderList, enterSpecificOrder } = useContext(BusinessContext);
 
   return (
     <View>
       <Text >History Orders Page!</Text>
-
-    <Text h4> Lastest Order: </Text>
-    <View>
-      {
-        list.map((l, i) => (
-          <ListItem
-            key={i}
-            leftAvatar={{ source: { uri: l.avatar_url } }}
-            title={l.name}
-            subtitle={l.subtitle}
-            bottomDivider
-            onPress={() => props.navigation.navigate("Detail")}
-          />
-        ))
-      }
-    </View>
-
+      <Text h4> Lastest Order: </Text>
+      <NavigationEvents onWillFocus={updateOrderList} />
+      <FlatList
+        data={state.historyOrders}
+        keyExtractor={item => item._id}
+        renderItem={({ item }) => {
+          return (
+            <TouchableOpacity
+              onPress={() => {
+                enterSpecificOrder({item})
+                // console.log(item)
+                // console.log("[ITEM]")
+              }}
+            >
+              <ListItem chevron title={item.tripInfo.tripTime} />
+            </TouchableOpacity>
+          );
+        }}
+      />
     </View>
   );
 };

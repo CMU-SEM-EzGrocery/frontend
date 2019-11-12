@@ -7,13 +7,15 @@ const router = express.Router();
 
 router.post('/new', async (req, res) => {
   try {
-    console.log(req.body);
-    const { stPoint, midPoint, edPoint, tripTime, user } = req.body;
+    // console.log(req.body);
+    const { stPoint, midPoint, edPoint, tripTime } = req.body;
+    const user = req.user;
     const newOrder = new Order({
       stepState: 1,
-      tripInfo: {stPoint, midPoint, edPoint, price:'10', tripTime, helper: user}
+      tripInfo: {stPoint, midPoint, edPoint, price:'10', tripTime, },
+      requester: user
     });
-    console.log(newOrder);
+    // console.log(newOrder);
     await newOrder.save();
     res.send(newOrder);
   } catch (err) {
@@ -21,15 +23,23 @@ router.post('/new', async (req, res) => {
   }
 });
 
+router.get('/allorders', async (req, res) => {
+  const user = req.user;
+  const allOrders = await Order.find({ 'requester._id': user._id});
+  res.json(allOrders);
+})
+
 router.get('/update', async (req, res) => {
 
-  const { ans, taskid, user } = req.body;
+  const { ans, taskid } = req.body;
+  const user = req.user;
   const targetOrder = await Order.find({ _id: taskid });
   res.send(targetOrder);
 });
 
 router.post('/finish', async (req, res) => {
-  const { ans, taskid, user } = req.body;
+  const { ans, taskid } = req.body;
+  const user = req.user;
 
   if(ans) {
     await Order.updateOne({_id: mongoose.Types.ObjectId(taskid)}, {stepState: 6, helper: user});
@@ -41,7 +51,8 @@ router.post('/finish', async (req, res) => {
 
 
 router.post('/cancel', async (req, res) => {
-  const { ans, taskid, user } = req.body;
+  const { ans, taskid } = req.body;
+  const user = req.user;
 
   if(ans) {
     await Order.updateOne({_id: mongoose.Types.ObjectId(taskid)}, {stepState: 7, helper: user});
