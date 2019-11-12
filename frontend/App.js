@@ -26,6 +26,7 @@ import MainRequestersScreen from './src/screens/requesters/MainRequestersScreen'
 import RatingScreen from './src/screens/requesters/RatingScreen';
 import HistoryOrdersScreen from './src/screens/requesters/HistoryOrdersScreen';
 import ServiceScreen from './src/screens/requesters/ServiceScreen';
+import MapScreenTest from './src/screens/requesters/MapScreenTest';
 
 // Import Helper Related Pages
 
