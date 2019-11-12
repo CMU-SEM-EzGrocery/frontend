@@ -14,8 +14,9 @@ const HelloScreen = props => {
       </TouchableOpacity>
       <Text></Text>
       <TouchableOpacity 
-        disabled={true} style={styles.buttonDisabled}
-        onPress={()=> props.navigation.navigate('HistoryOrders')}
+        // disabled={true} style={styles.buttonDisabled}
+        disabled={false} style={styles.buttonDisabled}
+        onPress={()=> props.navigation.navigate('MapTest')}
       >
         <Text style={styles.labelBtn}>Email</Text>
       </TouchableOpacity>

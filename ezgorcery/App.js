@@ -10,6 +10,7 @@ import MapScreen from './src/screens/MapScreen';
 import HistoryOrdersScreen from './src/screens/HistoryOrders';
 import DetailOrderScreen from './src/screens/DetailOrder'
 import DetailOrder from './src/screens/DetailOrder';
+import MapScreenTest from './src/screens/MapScreenTest';
 
 const navigator = createStackNavigator(
   {
@@ -19,6 +20,7 @@ const navigator = createStackNavigator(
     Map: MapScreen,
     HistoryOrders: HistoryOrdersScreen,
     Detail: DetailOrder,
+    MapTest: MapScreenTest,
   },
   {
     initialRouteName: 'Hello',

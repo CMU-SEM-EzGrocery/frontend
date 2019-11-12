@@ -2,8 +2,12 @@ import React, { useState } from 'react';
 import { Text, StyleSheet, View, TouchableOpacity, TextInput } from 'react-native';
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { AuthSession, Location } from 'expo';
+// import * as Permissions from 'expo-permissions'
 import { Image, SearchBar, Button, ListItem } from 'react-native-elements';
 import MapView from 'react-native-maps';
+
+import DestinationButton from '../components/DestinationButton';
+import CurrentLocationButton from '../components/CurrentLocationButton';
 
 // _getLocationAsync = async () => {
 //   let { status } = await PermissionRequest.askAsync(Permissions.Location);
@@ -15,26 +19,72 @@ import MapView from 'react-native-maps';
 //   }
 // }
 
+
+
 const MapScreen = props => {
 
   const [bn, setBn] = useState([]);
 
+  this.state = {
+    region: {
+      latitude: '37.4190049',
+      longitude: '-122.0579198',
+      latitudeDelta: 0.045,
+      longitudeDelta: 0.045,
+    },
+  }
+
+  // centerMap() {
+  //   const {
+  //     latitude,
+  //     longitude,
+  //     latitudeDelta,
+  //     longitudeDelta
+  //   } = this.state.region;
+  
+  //   this.map.animateToRegion({
+  //     latitude,
+  //     longitude,
+  //     latitudeDelta,
+  //     longitudeDelta,
+  //   });
+  // }
+  // _getLocationAsync = async () => {
+  //   let { status } = await Permissions.askAsync(Permissions.LOCATION);
+  //   if(status !== 'granted') {
+  //     console.log('Permission to access location was denied.');
+  //   }
+  //   let location = await Location.getCurrentPositionAsync({enableHighAccuracy: true});
+  //   let region = {
+  //     latitude: location.coords.latitude,
+  //     longitude: location.coords.longitude,
+  //     latitudeDelta: 0.045,
+  //     longitudeDelta: 0.045,
+  //   }
+
+  //   this.ListeningStateChangedEvent({region: region})
+  // }
+  
+  // this._getLocationAsync();
+
+
 
   return (
     <View style={styles.container}>
-      <SearchBar
+      {/* <SearchBar
         placeholder="Please Input the Place You Want to Go"
-      />            
+      />             */}
+      <DestinationButton />
+      {/* <CurrentLocationButton cb={() => {this.centerMap() }} /> */}
+      <CurrentLocationButton />
       <MapView
-        initialRegion={{
-        latitude: 37.78825,
-        longitude: -122.4324,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
-        }}
+        initialRegion={this.state.region}
+        showsUserLocation={true}
+        rotateEnabled={false}
+        // ref = {(map) => {this.map = map}}
         style={styles.mapStyle}
       />
-      <Text style={styles.label}> Start Position</Text>
+      {/* <Text style={styles.label}> Start Position</Text>
       <TextInput style={styles.input}
         autoCapitalize="none"
         onSubmitEditing={() => this.passwordInput.focus()}
@@ -74,7 +124,7 @@ const MapScreen = props => {
         onPress={()=> props.navigation.navigate('HistoryOrders')}
       >
         <Text style={styles.labelBtn}>Place Your Order!</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
 
     </View>
   );
@@ -82,9 +132,9 @@ const MapScreen = props => {
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
-    justifyContent: 'center',
-    marginTop: 50,
+    flex: 1,
+    // justifyContent: 'center',
+    // marginTop: 50,
   },
   input: {
     textAlign:'left',
@@ -146,7 +196,7 @@ const styles = StyleSheet.create({
   },
   mapStyle: {
     width: 400,
-    height: 200,
+    height: 700,
     borderRadius: 4,
     marginBottom: 5
   },
