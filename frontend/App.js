@@ -26,6 +26,7 @@ import RatingScreen from './src/screens/requesters/RatingScreen';
 import HistoryOrdersScreen from './src/screens/requesters/HistoryOrdersScreen';
 import DetailOrderScreen from './src/screens/requesters/DetailOrder';
 import ServiceScreen from './src/screens/requesters/ServiceScreen';
+import MapScreenTest from './src/screens/requesters/MapScreenTest';
 
 // Import Helper Related Pages
 
@@ -47,6 +48,7 @@ const navigator = createStackNavigator(
     HistoryOrders: HistoryOrdersScreen,
     Detail: DetailOrderScreen,
     Service: ServiceScreen,
+    MapScreenTest: MapScreenTest,
 
     // Helper Related Pages
 
