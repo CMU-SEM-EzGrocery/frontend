@@ -3,6 +3,7 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { StyleSheet, Text, View } from 'react-native';
+import { FontAwesome } from '@expo/vector-icons';
 
 // Import Context
 import { Provider as AuthProvider } from './src/context/AuthContext';
@@ -34,6 +35,7 @@ import AccountScreen from './src/screens/setting/AccountScreen';
 
 // Import Screens in lab
 import ChatScreen from './src/screens/lab/ChatScreen';
+import MapScreenTest from './src/screens/requesters/MapScreenTest';
 
 const firstMainScreenFlow = createStackNavigator({
   Main: MainScreen,
@@ -46,6 +48,16 @@ const secondMainScreenFlow = createStackNavigator({
   HistoryOrders: HistoryOrdersScreen,
   Service: ServiceScreen,
 });
+
+firstMainScreenFlow.navigationOptions = {
+  title: 'Ride',
+  tabBarIcon: <FontAwesome name="shopping-bag" size={20} />
+}
+
+secondMainScreenFlow.navigationOptions = {
+  title: 'History Orders',
+  tabBarIcon: <FontAwesome name="reorder" size={20} />
+}
 
 const navigator = createSwitchNavigator({
     // Authentication Related Pages
@@ -61,8 +73,9 @@ const navigator = createSwitchNavigator({
       // Requester Related Pages
       Orders: secondMainScreenFlow,
       // Helper Related Pages
+      Chat: ChatScreen,
       Account: AccountScreen,
-      Chat: ChatScreen
+      Test: MapScreenTest,
     })
   }, {
     initialRouteName: 'ResolveAuth',

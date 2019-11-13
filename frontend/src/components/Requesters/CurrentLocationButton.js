@@ -13,7 +13,7 @@ const CurrentLocationButton = function(props) {
 
     const cb = props.cb ? props.cb : () => console.log('11Callback function not passed to CurrentLocationButton!');
     //if props.bottom is passed, use it. If not, set bottom to 65
-    const bottom = props.bottom ? props.bottom : 265;
+    const bottom = props.bottom ? props.bottom : 500;
 
     return(
         <View style={[styles.container, {top: HEIGHT - bottom}]}>

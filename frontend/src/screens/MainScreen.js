@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Text, StyleSheet, View, Button, TouchableOpacity } from 'react-native';
+import { Text, StyleSheet, View, Button, TouchableOpacity, ScrollView } from 'react-native';
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { Context as AuthContext } from '../context/AuthContext';
 
@@ -11,24 +11,27 @@ const MainScreen = props => {
 
   return (
     <View>
-      <Text>
-        Main Screen!
-      </Text>
-        {
-          state.userInfo && state.userInfo.roleId == 1 ?
-          (
-            <MainRequestersScreen/>
-          ) :
-          null
-        }    
-        {
-          state.userInfo && state.userInfo.roleId == 2 ?
-          (
-            <MainHelperScreen/>
-          ) :
-          null
-        }    
+      <ScrollView>
+        {/* <Text>
+          Main Screen!
+        </Text> */}
+          {
+            state.userInfo && state.userInfo.roleId == 1 ?
+            (
+              <MainRequestersScreen/>
+            ) :
+            null
+          }    
+          {
+            state.userInfo && state.userInfo.roleId == 2 ?
+            (
+              <MainHelperScreen/>
+            ) :
+            null
+          }    
+        </ScrollView>
       </View>
+      
   );
 };
 

@@ -1,12 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { Text, StyleSheet, View, TouchableOpacity, TextInput } from 'react-native';
-import { Image, SearchBar, Button, ListItem } from 'react-native-elements';
+import { Text, StyleSheet, Button, View, TouchableOpacity, TextInput } from 'react-native';
+import { Image, SearchBar, ListItem, Rating, AirbnbRating } from 'react-native-elements';
 
-const Booked_HelperInfo = props => {
+const Finished = props => {
 
   return (
     <View>
-      <Text>HelperInfo</Text>
+      <Text style={styles.headline}>Your Order is Completed!</Text>
+      <Text style={styles.labelSmall}>Thank you so much for choosing EzGorcery! Please give your driver a rate! Are you quite satisfied with the journey?</Text>
+      <AirbnbRating
+        count={5}
+        reviews={["Terrible", "Bad", "OK", "Good", "Amazing" ]}
+        defaultRating={5}
+        size={20}
+      />
+      <TouchableOpacity style={styles.buttonS} >
+        <Text style={styles.labelBtn}>
+          Submit!
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -58,7 +70,8 @@ const styles = StyleSheet.create({
   labelSmall: {
     fontSize: 20,
     textAlign: "center",
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
+    color:'grey'
     
   },
   buttonS: {
@@ -80,4 +93,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Booked_HelperInfo;
+export default Finished;

@@ -10,12 +10,12 @@ import { Image, SearchBar, Button, ListItem } from 'react-native-elements';
 import MapView, { Marker, Polyline } from 'react-native-maps';
 import getDirections from 'react-native-google-maps-directions'
 
-import DestinationButton from '../../components/Requesters/DestinationButton';
-import CurrentLocationButton from '../../components/Requesters/CurrentLocationButton';
+import DestinationButton from './DestinationButton';
+import CurrentLocationButton from './CurrentLocationButton';
 
 import { Entypo } from '@expo/vector-icons';
 
-export default class MapScreenTest extends React.Component {
+export default class MapComp extends React.Component {
 
     constructor(props) {
       super(props);
@@ -25,16 +25,16 @@ export default class MapScreenTest extends React.Component {
         region: {
           latitude: 37.4190049,
           longitude: -122.0579198,
-          latitudeDelta: 0.922,
-          longitudeDelta: 0.0421,
+          latitudeDelta: 0.065,
+          longitudeDelta: 0.055,
           routeCoordinates: [],
           distanceTravelled: 0,
           prevLatLng: {}
         },
 
         requesterRegion: {
-          latitude: 37.78825,
-          longitude: -122.4324,
+          latitude: 37.4016985,
+          longitude: -122.0579198,
           latitudeDelta: 0.922,
           longitudeDelta: 0.0421,
         }
@@ -177,7 +177,7 @@ export default class MapScreenTest extends React.Component {
       return (
           <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
             <DestinationButton />
-            <Button onPress={this.handleGetDirections} title="Get Directions" />
+            
             <CurrentLocationButton cb={() => { this.centerMap() }}/>
             <MapView
                 region={this.getMapRegion()}
@@ -188,9 +188,15 @@ export default class MapScreenTest extends React.Component {
             >
               <Polyline coordinates={this.state.region.routeCoordinates} strokeWidth={5} />
               <Marker coordinate={this.state.region}> 
-              <Image source={require("../../../assets/car.png")} style={{ height: 35, width: 35 }} />
+                <Image source={require("../../../assets/car.png")} style={{ height: 35, width: 35 }} />
+              </Marker>
+              <Marker 
+                coordinate={this.state.requesterRegion}
+                title="Safeway"
+              > 
               </Marker>
             </MapView>
+            <Button onPress={this.handleGetDirections} title="Get Directions" />
             <View style={styles.distanceContainer}>
               <Text>{parseFloat(this.state.region.distanceTravelled / 1000).toFixed(2) } km</Text>
             </View>
@@ -206,7 +212,7 @@ export default class MapScreenTest extends React.Component {
     },
     mapStyle: {
       width: 400,
-      height: 700,
+      height: 450,
       borderRadius: 4,
       marginBottom: 5
     },
@@ -217,8 +223,3 @@ export default class MapScreenTest extends React.Component {
     },
   
   });
-
-  MapScreenTest.navigationOptions = {
-    title: 'lab-flask',
-    tabBarIcon: <Entypo name="chat" size={20} />
-  };

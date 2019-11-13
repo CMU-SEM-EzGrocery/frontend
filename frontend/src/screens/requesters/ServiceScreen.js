@@ -10,6 +10,7 @@ import Booked_HelperFound from '../../components/Requesters/Booked_HelperFound';
 import Booked_TripInfo from '../../components/Requesters/Booked_TripInfo';
 import Booked_HelperInfo from '../../components/Requesters/Booked_HelperInfo';
 import DriverComing from '../../components/Requesters/DriverComing';
+import Finished from '../../components/Requesters/Finished';
 
 const ServiceScreen = props => {
 
@@ -49,6 +50,15 @@ const ServiceScreen = props => {
             <DriverComing/>
             <Booked_HelperInfo/>
             <Booked_TripInfo/>
+          </>
+          ) :
+        null
+      }
+      {
+        state.currentOrder.stepState == 6 ?
+        (
+          <>
+            <Finished/>
           </>
           ) :
         null

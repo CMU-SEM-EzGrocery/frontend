@@ -6,28 +6,30 @@ import { AuthSession } from 'expo';
 
 const HelloScreen = props => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.headline}>EZGrocery</Text>
-      <Text style={styles.label}> Login</Text>
-      <TouchableOpacity style={styles.buttonS} onPress={() => props.navigation.navigate('Login')}>
-        <Text style={styles.labelBtn}>PHONE</Text>
-      </TouchableOpacity>
-      <Text></Text>
-      <TouchableOpacity 
-        disabled={true} style={styles.buttonDisabled}
-        onPress={()=> props.navigation.navigate('HistoryOrders')}
-      >
-        <Text style={styles.labelBtn}>EMAIL</Text>
-      </TouchableOpacity>
-      <Text style={styles.labelAsk}>
-        Are you new? Register now! 
-      </Text>      
-      <TouchableOpacity 
-        onPress={()=> props.navigation.navigate('Register')}
-        style={styles.buttonS}>
-        <Text style={styles.labelBtn}>Register</Text>
-      </TouchableOpacity>
-    </View>
+    
+     <View style={styles.container}>
+        <Text style={styles.headline}>EZGrocery</Text>
+        <Text style={styles.label}> Login</Text>
+        <TouchableOpacity style={styles.buttonS} onPress={() => props.navigation.navigate('Login')}>
+          <Text style={styles.labelBtn}>PHONE</Text>
+        </TouchableOpacity>
+        <Text></Text>
+        <TouchableOpacity 
+          disabled={true} style={styles.buttonDisabled}
+          onPress={()=> props.navigation.navigate('HistoryOrders')}
+        >
+          <Text style={styles.labelBtn}>EMAIL</Text>
+        </TouchableOpacity>
+        <Text style={styles.labelAsk}>
+          Are you new? Register now! 
+        </Text>      
+        <TouchableOpacity 
+          onPress={()=> props.navigation.navigate('Register')}
+          style={styles.buttonS}>
+          <Text style={styles.labelBtn}>Register</Text>
+        </TouchableOpacity>
+      </View>
+    
   );
 };
 HelloScreen.navigationOptions = () => {

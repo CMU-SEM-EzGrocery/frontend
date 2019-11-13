@@ -10,8 +10,8 @@ import { Image, SearchBar, Button, ListItem } from 'react-native-elements';
 import MapView, { Marker, Polyline } from 'react-native-maps';
 import getDirections from 'react-native-google-maps-directions'
 
-import DestinationButton from '../../components/Requesters/DestinationButton';
-import CurrentLocationButton from '../../components/Requesters/CurrentLocationButton';
+import DestinationButton from './DestinationButton';
+import CurrentLocationButton from './CurrentLocationButton';
 
 import { Entypo } from '@expo/vector-icons';
 
@@ -177,7 +177,7 @@ export default class MapScreenTest extends React.Component {
       return (
           <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
             <DestinationButton />
-            <Button onPress={this.handleGetDirections} title="Get Directions" />
+            
             <CurrentLocationButton cb={() => { this.centerMap() }}/>
             <MapView
                 region={this.getMapRegion()}
@@ -191,6 +191,7 @@ export default class MapScreenTest extends React.Component {
               <Image source={require("../../../assets/car.png")} style={{ height: 35, width: 35 }} />
               </Marker>
             </MapView>
+            <Button onPress={this.handleGetDirections} title="Get Directions" />
             <View style={styles.distanceContainer}>
               <Text>{parseFloat(this.state.region.distanceTravelled / 1000).toFixed(2) } km</Text>
             </View>
@@ -202,11 +203,10 @@ export default class MapScreenTest extends React.Component {
 
   const styles = StyleSheet.create({
     container: {
-      flex: 1,
     },
     mapStyle: {
       width: 400,
-      height: 700,
+      height: 300,
       borderRadius: 4,
       marginBottom: 5
     },

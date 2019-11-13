@@ -1,6 +1,8 @@
 import React from 'react'
 import { GiftedChat } from 'react-native-gifted-chat'
 
+import { Entypo } from '@expo/vector-icons';
+
 class Example extends React.Component {
   state = {
     messages: [],
@@ -11,7 +13,7 @@ class Example extends React.Component {
       messages: [
         {
           _id: 1,
-          text: 'Hello developer',
+          text: 'Hello Jiafeng! Nice to Meet you, I am going to pick you up tomorrow 1:00 PM. Is that okay for you? See you there! ',
           createdAt: new Date(),
           user: {
             _id: 2,
@@ -41,5 +43,10 @@ class Example extends React.Component {
     )
   }
 }
+
+Example.navigationOptions = {
+  title: 'Chat',
+  tabBarIcon: <Entypo name="chat" size={20} />
+};
 
 export default Example;

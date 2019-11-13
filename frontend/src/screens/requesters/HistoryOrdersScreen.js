@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import {  StyleSheet, View, Button, TouchableOpacity, TextInput, Image, FlatList } from 'react-native';
+import {  StyleSheet, View, Button, TouchableOpacity, TextInput, Image, FlatList, ScrollView } from 'react-native';
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { AuthSession, MapView, Location } from 'expo';
 import { Text, ListItem } from 'react-native-elements';
@@ -13,33 +13,42 @@ const HistoryOrdersScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.headline}>History Orders Page</Text>
-      <Image
-          style={{width: 'auto', height: 450,marginLeft:-80,marginTop:-50,}}
-          // source={require('../ assets/commute.png')}
-          source={require('../../../assets/schedule.png')}
-        />
-      <Text style={styles.label}> Lastest Scheduled Order: </Text>
-      <NavigationEvents onWillFocus={updateOrderList} />
-      <FlatList style={styles.order}
-        data={state.historyOrders}
-        keyExtractor={item => item._id}
-        renderItem={({ item }) => {
-          return (
-            <TouchableOpacity
-              onPress={() => {
-                enterSpecificOrder({item})
-                // console.log(item)
-                // console.log("[ITEM]")
-              }}
-            >
-              <ListItem chevron title={item.tripInfo.tripTime} />
-            </TouchableOpacity>
+      <ScrollView>      
+        <Text style={styles.headline}>History Orders Page</Text>
+        <Image
+            style={
+              {
+                width: 'auto', 
+                height: 'auto',
+                // marginLeft:-80,
+                // marginTop:-50,
+              }
+            }
+            // source={require('../ assets/commute.png')}
+            source={require('../../../assets/schedule.png')}
+          />
+        <Text style={styles.label}> Lastest Scheduled Order: </Text>
+        <NavigationEvents onWillFocus={updateOrderList} />
+        <FlatList style={styles.order}
+          data={state.historyOrders}
+          keyExtractor={item => item._id}
+          renderItem={({ item }) => {
+            return (
+              <TouchableOpacity
+                onPress={() => {
+                  enterSpecificOrder({item})
+                  // console.log(item)
+                  // console.log("[ITEM]")
+                }}
+              >
+                <ListItem chevron title={item.tripInfo.tripTime} />
+              </TouchableOpacity>
+              
+            );
             
-          );
-          
-        }}
-      />
+          }}
+        />
+      </ScrollView>
     </View>
   );
 };

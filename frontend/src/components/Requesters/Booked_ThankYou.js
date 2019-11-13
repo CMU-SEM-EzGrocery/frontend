@@ -8,6 +8,10 @@ const Booked_ThankYou = props => {
     <View style={styles.container}>
       <Text style={styles.headline}>Thank you for Booking!</Text>
       <Text style={styles.labelSmall}>Usually, our system takes 10 minutes to match your potential shopping partner. We appreciate your pateince and interest in using our APP.</Text>
+      <Image
+         style={{width: 400, height: 150,marginLeft:80,marginTop:20,marginBottom:10,}}
+          source={require('../../../assets/red_car.png')}
+      />
     </View>
   );
 };

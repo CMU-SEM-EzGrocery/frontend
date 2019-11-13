@@ -8,34 +8,23 @@ import MapView from 'react-native-maps';
 // Import Context
 
 
+
 // Import Components
 import MapForm from '../../components/Requesters/Map_Form';
+import MapComp from '../../components/Requesters/MapComp';
 
 const MainRequestersScreen = props => {
 
   return (
     <View>
-      <Text>Requesters Main Page!</Text>
-      <SearchBar
-        placeholder="Please Input the Place You Want to Go"
-      />    
-      <MapView
-        initialRegion={{
-        latitude: 37.78825,
-        longitude: -122.4324,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
-        }}
+      {/* <Text>Requesters Main Page!</Text> */}
+      
+      <MapComp
         style={styles.mapStyle}
       />
       <MapForm
         onSubmitForm={() => {submitNewOrder()}}
       />
-      <TouchableOpacity 
-        onPress={()=> props.navigation.navigate('HistoryOrders')}
-      >
-        <Text style={styles.buttonS}>History Orders</Text>
-      </TouchableOpacity>
       
     </View>
   );
@@ -69,7 +58,7 @@ const styles = StyleSheet.create({
   },
   mapStyle: {
     width: 400,
-    height: 400,
+    height: 200,
     borderRadius: 4,
     marginBottom: 5
   },

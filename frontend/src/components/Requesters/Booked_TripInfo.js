@@ -11,10 +11,7 @@ const Booked_TripInfo = props => {
   return (
     <View >
       <Text></Text>
-      <Image
-         style={{width: 400, height: 150,marginLeft:80,marginTop:20,marginBottom:10,}}
-          source={require('../../../assets/red_car.png')}
-      />
+      
       <Text></Text>
       <Text style={styles.labelSmall}>Trip Details</Text>
       
