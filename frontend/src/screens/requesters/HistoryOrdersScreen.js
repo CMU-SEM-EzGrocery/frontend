@@ -12,11 +12,16 @@ const HistoryOrdersScreen = ({ navigation }) => {
   const { state, updateOrderList, enterSpecificOrder } = useContext(BusinessContext);
 
   return (
-    <View>
-      <Text >History Orders Page!</Text>
-      <Text h4> Lastest Order: </Text>
+    <View style={styles.container}>
+      <Text style={styles.headline}>History Orders Page</Text>
+      <Image
+          style={{width: 'auto', height: 450,marginLeft:-80,marginTop:-50,}}
+          // source={require('../ assets/commute.png')}
+          source={require('../../../assets/schedule.png')}
+        />
+      <Text style={styles.label}> Lastest Scheduled Order: </Text>
       <NavigationEvents onWillFocus={updateOrderList} />
-      <FlatList
+      <FlatList style={styles.order}
         data={state.historyOrders}
         keyExtractor={item => item._id}
         renderItem={({ item }) => {
@@ -30,7 +35,9 @@ const HistoryOrdersScreen = ({ navigation }) => {
             >
               <ListItem chevron title={item.tripInfo.tripTime} />
             </TouchableOpacity>
+            
           );
+          
         }}
       />
     </View>
@@ -38,33 +45,78 @@ const HistoryOrdersScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+  text: {
+    fontSize: 30
+  },
+  container: {
+    // flex: 1,
+    justifyContent: 'center',
+    // marginTop: 50,
+  },
+  order:{
+    fontSize: 20,
+    textAlign: "left",
+    fontWeight: 'bold',
+  },
 
+  input: {
+    textAlign:'left',
+    backgroundColor:'#F2F2F2',
+    borderColor: 'grey',
+    borderWidth: 2,
+    borderRadius: 25,
+    color: 'black',
+    fontSize: 14,
+    fontWeight: 'bold',
+    overflow: 'hidden',
+    padding:10,
+    marginTop:10,
+    marginBottom:10,
+    marginLeft:20,  
+    width:"90%",
+  },
+  headline: {
+    fontSize: 20,
+    textAlign: "center",
+    padding: 10,
+    margin: 10,
+    fontWeight: 'bold',
+  },
+  labelBtn: {
+    fontSize: 20,
+    textAlign: "center",
+    fontWeight: 'bold',
+    color: 'white',
+  },
+  label: {
+    fontSize: 20,
+    textAlign: "left",
+    marginLeft:10,
+    fontWeight: 'bold',
+  },
+  labelSmall: {
+    fontSize: 20,
+    textAlign: "left",
+    marginLeft: 110,
+    fontWeight: 'bold',
+  },
   buttonS: {
-    backgroundColor: 'green',
+    backgroundColor: '#03a557',
     borderColor: 'white',
     borderWidth: 2,
-    borderRadius: 12,
+    borderRadius: 35,
     color: '#fff',
     fontSize: 14,
     fontWeight: 'bold',
     overflow: 'hidden',
-    paddingLeft: 80,
-    paddingTop: 20,
-    paddingBottom: 20,
+    paddingTop: 10,
+    paddingBottom: 10,
     textAlign: 'center',
     color: '#fff',
-    width: "50%",
-    marginLeft: 100,
-    marginTop: 20,
+    width:"70%",
+    marginLeft:60,
+    position:"relative"  
   },
-
-  image: {
-    width: 250,
-    height: 120,
-    borderRadius: 4,
-    marginBottom: 5
-  },
-
 });
 
 export default HistoryOrdersScreen;
