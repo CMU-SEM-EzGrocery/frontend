@@ -8,10 +8,11 @@ const HelloScreen = props => {
   return (
     <View style={styles.container}>
       <Text style={styles.headline}>EZGrocery</Text>
-      <Text style={styles.label}> Login with</Text>
+      <Text style={styles.label}> Login</Text>
       <TouchableOpacity style={styles.buttonS} onPress={() => props.navigation.navigate('Login')}>
         <Text style={styles.labelBtn}>PHONE</Text>
       </TouchableOpacity>
+      <Text></Text>
       <TouchableOpacity 
         disabled={true} style={styles.buttonDisabled}
         onPress={()=> props.navigation.navigate('HistoryOrders')}
@@ -50,8 +51,7 @@ const styles = StyleSheet.create({
   },
   labelBtn: {
     fontSize: 20,
-    textAlign:"left",
-    marginLeft: -2, 
+    textAlign:"center",
     fontWeight:'bold',
     color:'white',
   },
@@ -70,39 +70,38 @@ const styles = StyleSheet.create({
     fontWeight:'bold',  
   },
   buttonS: {
-    backgroundColor: 'green',
+    backgroundColor: '#03a557',
     borderColor: 'white',
     borderWidth: 2,
-    borderRadius: 12,
+    borderRadius: 35,
     color: '#fff',
     fontSize: 14,
     fontWeight: 'bold',
     overflow: 'hidden',
-    paddingLeft:80,
-    paddingTop:20,
-    paddingBottom:20,
+    paddingTop:10,
+    paddingBottom:10,
     textAlign:'center',
     color:'#fff',
-    width:"50%",
-    marginLeft:100,
-    
+    width:"70%",
+    marginLeft:60,
+    position:"relative"    
   },
   buttonDisabled: {
     backgroundColor: 'grey',
     borderColor: 'white',
     borderWidth: 2,
-    borderRadius: 12,
+    borderRadius: 35,
     color: '#fff',
     fontSize: 14,
     fontWeight: 'bold',
     overflow: 'hidden',
-    paddingLeft:80,
-    paddingTop:20,
-    paddingBottom:20,
+    paddingTop:10,
+    paddingBottom:10,
     textAlign:'center',
     color:'#fff',
-    width:"50%",
-    marginLeft:100,
+    width:"70%",
+    marginLeft:60,
+    position:"relative" 
     
   },
   linkStyle:{
@@ -111,10 +110,8 @@ const styles = StyleSheet.create({
     backgroundColor:'blue', 
     color: '#fff',
     marginLeft:300,
-    marginTop:-39,
-  
+    marginTop:-39,  
   },
-
 });
 
 export default HelloScreen;
