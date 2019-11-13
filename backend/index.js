@@ -2,18 +2,26 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
+// Import Models
 const User = require('./models/User');
+
+// Import Routes
 const authRoutes = require('./routes/authRoutes');
-const requireAuth = require('./middlewares/requireAuth');
 const requestersRoutes = require('./routes/requestersRoutes');
 const helpersRoutes = require('./routes/helpersRoutes');
+const mapRoutes = require('./routes/mapRoutes');
 
+// Import Middlewares
+const requireAuth = require('./middlewares/requireAuth');
+
+// Begin Main Program
 const app = express();
 
 app.use(bodyParser.json());
 app.use('/users', authRoutes);
 app.use('/requesters', requireAuth, requestersRoutes);
 app.use('/helpers', requireAuth, helpersRoutes);
+app.use('/map', requireAuth, mapRoutes);
 
 const mongoUri =
   'mongodb://localhost:27017/lynchezgorcery';
@@ -33,6 +41,7 @@ app.get('/', requireAuth, (req, res) => {
 });
 
 const port = process.env.PORT || 8000;
+
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });

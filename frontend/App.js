@@ -32,6 +32,9 @@ import ServiceScreen from './src/screens/requesters/ServiceScreen';
 // Import Setting Related Pages
 import AccountScreen from './src/screens/setting/AccountScreen';
 
+// Import Screens in lab
+import ChatScreen from './src/screens/lab/ChatScreen';
+
 const firstMainScreenFlow = createStackNavigator({
   Main: MainScreen,
   MainHelpers: MainHelpersScreen,
@@ -43,7 +46,6 @@ const secondMainScreenFlow = createStackNavigator({
   HistoryOrders: HistoryOrdersScreen,
   Service: ServiceScreen,
 });
-
 
 const navigator = createSwitchNavigator({
     // Authentication Related Pages
@@ -60,6 +62,7 @@ const navigator = createSwitchNavigator({
       Orders: secondMainScreenFlow,
       // Helper Related Pages
       Account: AccountScreen,
+      Chat: ChatScreen
     })
   }, {
     initialRouteName: 'ResolveAuth',
