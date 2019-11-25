@@ -1,8 +1,13 @@
 import React, { useState, useContext } from 'react';
-import { Text, StyleSheet, View, Button, TouchableOpacity, TextInput } from 'react-native';
+import { Text, StyleSheet, View, Button, TouchableOpacity, TextInput, ScrollView, Image ,TouchableHighlight } from 'react-native';
 import { Input } from 'react-native-elements'
+import ModalDropdown from 'react-native-modal-dropdown';
 
 import { Context as BusinessContext } from '../../context/BusinessContext';
+
+const dropdown_6_icon = require('./images/heart.png');
+
+const DEMO_OPTIONS_2 = ['option 1', 'option 2', 'option 3', 'option 4', 'option 5', 'option 6', 'option 7', 'option 8', 'option 9'];
 
 const MapForm = (props) => {
 
@@ -13,20 +18,32 @@ const MapForm = (props) => {
 
   const { submitNewOrder } = useContext(BusinessContext);
 
+  stPointChange = (text) => {
+    setStPoint(text);
+
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.label}> Start Position</Text>
+      {/* <ModalDropdown
+        style={styles.dropdown}
+        options={DEMO_OPTIONS_2}
+      /> */}
       <TextInput style={styles.input}
         returnKeyType="next"
-        onChangeText={setStPoint}
+        onChangeText={text => stPointChange(text)}
+        autoFocus={true}
         placeholder='Please input your start position'
         placeholderTextColor='rgba(225,225,225,0.7)'>
       </TextInput>
+
 
       <Text style={styles.label}> Shop Position</Text>
       <TextInput style={styles.input}
         returnKeyType="next"
         onChangeText={setMidPoint}
+        autoFocus={true}
         placeholder='Please input which shop you want to go'
         placeholderTextColor='rgba(225,225,225,0.7)'>
       </TextInput>
@@ -35,6 +52,7 @@ const MapForm = (props) => {
       <TextInput style={styles.input}
         returnKeyType="next"
         onChangeText={setEdPoint}
+        autoFocus={true}
         placeholder='Please input where do you want to get off'
         placeholderTextColor='rgba(225,225,225,0.7)'>
       </TextInput>
@@ -122,6 +140,10 @@ const styles = StyleSheet.create({
     width:"70%",
     marginLeft:60,
     position:"relative"  
+  },
+  dropdown: {
+    flex: 1,
+    left: 8,
   },
 });
 

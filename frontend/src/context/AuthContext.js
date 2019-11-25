@@ -37,9 +37,14 @@ const clearErrorMessage = dispatch => () => {
   dispatch({ type: 'clear_error_message' });
 };
 
-const signup = dispatch => async ({ email, password }) => {
+const signup = dispatch => async ({ phoneNumber, password, firstName, lastName, roleId, currency, language, address, rating }) => {
+ 
   try {
-    const response = await ServerAPI.post('/signup', { email, password });
+    console.log({
+      phoneNumber, password, firstName, lastName, roleId, currency, language, address, rating
+    });
+    console.log("***");
+    const response = await ServerAPI.post('/users/signup', { phoneNumber, password, firstName, lastName, roleId, currency, language, address, rating });
     await AsyncStorage.setItem('token', response.data.token);
     dispatch({ type: 'signin', payload: response.data.token });
 

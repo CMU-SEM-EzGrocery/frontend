@@ -219,6 +219,6 @@ export default class MapScreenTest extends React.Component {
   });
 
   MapScreenTest.navigationOptions = {
-    title: 'lab-flask',
-    tabBarIcon: <Entypo name="chat" size={20} />
+    title: 'Beta',
+    tabBarIcon: <Entypo name="lab-flask" size={20} />
   };

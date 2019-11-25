@@ -7,7 +7,11 @@ const requireAuth = require('../middlewares/requireAuth');
 const router = express.Router();
 
 router.post('/signup', async (req, res) => {
-  const { phoneNumber, password, firstName, lastName, roleId, currency, language, address, rating } = req.body;
+  const test = { phoneNumber, password, firstName, lastName, roleId, currency, language, address, rating } = req.body;
+
+  console.log(test);
+  console.log("******");
+  
 
   try {
     const user = new User({ phoneNumber, password, firstName, lastName, roleId, currency, language, address, rating });

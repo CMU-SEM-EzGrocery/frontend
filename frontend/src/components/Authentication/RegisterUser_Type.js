@@ -17,14 +17,14 @@ const RegisterUserType = (props) => {
         style={styles.buttonS}>
         <Text style={styles.labelBtn}>Requester</Text>
       </TouchableOpacity>
-      <Text></Text>
+      
       <TouchableOpacity
+        disabled={true}
         onPress={() => {
           props.changeUserType('helper')
           props.toUserProfile()
-        }
-        } 
-        style={styles.buttonS}>
+        }} 
+        style={styles.buttonD}>
         <Text style={styles.labelBtn}>Helper</Text>
       </TouchableOpacity>
       
@@ -83,6 +83,23 @@ buttonS: {
   width:"50%",
   marginLeft:100,
   position:"relative"    
+},
+buttonD: {
+  backgroundColor: 'grey',
+  borderColor: 'white',
+  borderWidth: 2,
+  borderRadius: 35,
+  color: '#fff',
+  fontSize: 14,
+  fontWeight: 'bold',
+  overflow: 'hidden',
+  paddingTop:10,
+  paddingBottom:10,
+  textAlign:'center',
+  color:'#fff',
+  width:"50%",
+  marginLeft:100,
+  position:"relative"  
 },
 });
 

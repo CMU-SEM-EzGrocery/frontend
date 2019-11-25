@@ -31,6 +31,7 @@ const LoginScreen = props => {
                autoCapitalize="none" 
                onChangeText={setPassword}
                onSubmitEditing={() => this.passwordInput.focus()} 
+               passwordInput={true}
                autoCorrect={false} 
                keyboardType='email-address' 
                returnKeyType="next" 

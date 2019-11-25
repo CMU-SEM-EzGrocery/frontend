@@ -9,7 +9,6 @@ const RegisterUserProfile = (props) => {
       <Text style={styles.label}>First Name</Text>
       <TextInput style={styles.input}
         autoCapitalize="none"
-        onSubmitEditing={() => this.passwordInput.focus()}
         autoCorrect={false}
         onChangeText= {newValue => props.changeFirstName(newValue) } 
         keyboardType=''
@@ -19,7 +18,6 @@ const RegisterUserProfile = (props) => {
       <Text style={styles.label}>Last Name</Text>
       <TextInput style={styles.input}
         autoCapitalize="none"
-        onSubmitEditing={() => this.passwordInput.focus()}
         autoCorrect={false}
         keyboardType=''
         returnKeyType="next"
@@ -29,7 +27,6 @@ const RegisterUserProfile = (props) => {
       <Text style={styles.label}>Phone</Text>
       <TextInput style={styles.input}
         autoCapitalize="none"
-        onSubmitEditing={() => this.passwordInput.focus()}
         autoCorrect={false}
         keyboardType=''
         returnKeyType="next"
@@ -39,12 +36,11 @@ const RegisterUserProfile = (props) => {
       <Text style={styles.label}>Password</Text>
       <TextInput style={styles.input}
         autoCapitalize="none"
-        onSubmitEditing={() => this.passwordInput.focus()}
         autoCorrect={false}
         keyboardType=''
         secureTextEntry={true}
         onChangeText= {newValue => props.changePassword(newValue) } 
-        returnKeyType="next"
+        returnKeyType="done"
         placeholder='Enter Password'
         placeholderTextColor='rgba(225,225,225,0.7)'></TextInput>
 

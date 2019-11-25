@@ -176,7 +176,7 @@ export default class MapComp extends React.Component {
     render() {
       return (
           <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-            <DestinationButton />
+            {/* <DestinationButton /> */}
             
             <CurrentLocationButton cb={() => { this.centerMap() }}/>
             <MapView
@@ -197,9 +197,9 @@ export default class MapComp extends React.Component {
               </Marker>
             </MapView>
             <Button onPress={this.handleGetDirections} title="Get Directions" />
-            <View style={styles.distanceContainer}>
+            {/* <View style={styles.distanceContainer}>
               <Text>{parseFloat(this.state.region.distanceTravelled / 1000).toFixed(2) } km</Text>
-            </View>
+            </View> */}
           </View>
           
       );

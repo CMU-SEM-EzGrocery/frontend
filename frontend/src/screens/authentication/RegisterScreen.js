@@ -1,7 +1,9 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useContext } from 'react';
 import { Text, StyleSheet, View, Button, TouchableOpacity } from 'react-native';
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { AuthSession } from 'expo';
+
+import { Context as AuthContext } from '../../context/AuthContext';
 
 import RegisterUserPreference from '../../components/Authentication/RegisterUser_Preference';
 import RegisterUserProfile from '../../components/Authentication/RegisterUser_Profile';
@@ -60,6 +62,9 @@ const registerReducer = (state, action) => {
 }
 
 const RegisterScreen = props => {
+
+  const { signup } = useContext(AuthContext);
+
   const [state, dispatch] = useReducer(registerReducer, { count: 0, step: 'UserType' });
   console.log(state);
 
@@ -145,18 +150,100 @@ const RegisterScreen = props => {
           toUserPreference={() =>
             dispatch({ type: 'toUserPreference' })
           }
-          finishRegister={() => {
-            console.log('**')
-            console.log(state)
-            console.log('**')
-            props.navigation.navigate('Map')
-          }
-          }
         />
+      }
+      {
+        state.step == 'UserVerification' &&
+        <TouchableOpacity
+          onPress={() => {
+            signup({ 
+              phoneNumber: state.phone,
+              password: state.password, 
+              firstName: state.firstName, 
+              lastName: state.lastName, 
+              roleId: "1", 
+              currency: state.currency,
+              language: state.language, 
+              address: "CMU SV", 
+              rating: "5", 
+            })
+          }} 
+          style={styles.buttonS}>
+          <Text style={styles.labelBtn}>Upload</Text>
+        </TouchableOpacity>
       }
 
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  text: {
+    fontSize: 30
+  },
+  container: {
+    // flex: 1,
+    justifyContent: 'center',
+    marginTop: 50,
+  },
+  input: {
+    textAlign:'left',
+    backgroundColor:'#F2F2F2',
+    borderColor: 'grey',
+    borderWidth: 2,
+    borderRadius: 25,
+    color: 'black',
+    fontSize: 14,
+    fontWeight: 'bold',
+    overflow: 'hidden',
+    padding:10,
+    marginTop:10,
+    marginBottom:10,
+    marginLeft:20,  
+    width:"90%",
+  },
+  headline: {
+    fontSize: 20,
+    textAlign: "center",
+    padding: 10,
+    margin: 10,
+    fontWeight: 'bold',
+  },
+  labelBtn: {
+    fontSize: 20,
+    textAlign: "center",
+    fontWeight: 'bold',
+    color: 'white',
+  },
+  label: {
+    fontSize: 20,
+    textAlign: "left",
+    marginLeft:25,
+    fontWeight: 'bold',
+  },
+  labelSmall: {
+    fontSize: 20,
+    textAlign: "left",
+    marginLeft: 110,
+    fontWeight: 'bold',
+  },
+  buttonS: {
+    backgroundColor: '#03a557',
+    borderColor: 'white',
+    borderWidth: 2,
+    borderRadius: 35,
+    color: '#fff',
+    fontSize: 14,
+    fontWeight: 'bold',
+    overflow: 'hidden',
+    paddingTop: 10,
+    paddingBottom: 10,
+    textAlign: 'center',
+    color: '#fff',
+    width:"70%",
+    marginLeft:60,
+    position:"relative"  
+  },
+});
 
 export default RegisterScreen;

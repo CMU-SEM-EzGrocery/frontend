@@ -35,6 +35,7 @@ import AccountScreen from './src/screens/setting/AccountScreen';
 
 // Import Screens in lab
 import ChatScreen from './src/screens/lab/ChatScreen';
+import DropdownExampleScreen from './src/screens/lab/DropdownExampleScreen';
 import MapScreenTest from './src/screens/requesters/MapScreenTest';
 
 const firstMainScreenFlow = createStackNavigator({
@@ -55,7 +56,7 @@ firstMainScreenFlow.navigationOptions = {
 }
 
 secondMainScreenFlow.navigationOptions = {
-  title: 'History Orders',
+  title: 'Orders',
   tabBarIcon: <FontAwesome name="reorder" size={20} />
 }
 
@@ -73,7 +74,8 @@ const navigator = createSwitchNavigator({
       // Requester Related Pages
       Orders: secondMainScreenFlow,
       // Helper Related Pages
-      Chat: ChatScreen,
+      
+      // Chat: DropdownExampleScreen,
       Account: AccountScreen,
       Test: MapScreenTest,
     })

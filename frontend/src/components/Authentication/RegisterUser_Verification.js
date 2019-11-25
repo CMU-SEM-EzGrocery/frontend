@@ -8,7 +8,6 @@ const RegisterUserVerification = (props) => {
       <Text style={styles.label}>Document Type</Text>
       <TextInput style={styles.input}
         autoCapitalize="none"
-        onSubmitEditing={() => this.passwordInput.focus()}
         autoCorrect={false}
         keyboardType='email-address'
         returnKeyType="next"
@@ -18,18 +17,13 @@ const RegisterUserVerification = (props) => {
       <Text style={styles.label}>ID Number</Text>
       <TextInput style={styles.input}
         autoCapitalize="none"
-        onSubmitEditing={() => this.passwordInput.focus()}
         autoCorrect={false}
         keyboardType='email-address'
         returnKeyType="next"
         placeholder='ID Number'
         placeholderTextColor='rgba(225,225,225,0.7)'></TextInput>
 
-      <TouchableOpacity
-        onPress={() => props.finishRegister()} 
-        style={styles.buttonS}>
-        <Text style={styles.labelBtn}>Upload</Text>
-      </TouchableOpacity>
+      
     </View>
   );
 };
