@@ -1,0 +1,87 @@
+import { AsyncStorage } from 'react-native';
+import createDataContext from './createDataContext';
+// import trackerApi from '../api/tracker';
+import ServerAPI from '../api/server';
+import { navigate } from '../navigationRef';
+
+const authReducer = (state, action) => {
+  switch (action.type) {
+    case 'add_error':
+      return { ...state, errorMessage: action.payload };
+    case 'signin':
+      return { errorMessage: '', token: action.payload };
+    case 'clear_error_message':
+      return { ...state, errorMessage: '' };
+    case 'signout':
+      return { token: null, errorMessage: '', userInfo: null };
+    case 'update_user':
+      return { ...state, userInfo: action.payload}
+    default:
+      return state;
+  }
+};
+
+const tryLocalSignin = dispatch => async () => {
+  const token = await AsyncStorage.getItem('token');
+  if (token) {
+    dispatch({ type: 'signin', payload: token });
+    const response2 = await ServerAPI.get('/users/info');
+    dispatch({ type: 'update_user', payload: response2.data});
+    navigate('Main');
+  } else {
+    navigate('Hello');
+  }
+};
+
+const clearErrorMessage = dispatch => () => {
+  dispatch({ type: 'clear_error_message' });
+};
+
+const signup = dispatch => async ({ phoneNumber, password, firstName, lastName, roleId, currency, language, address, rating }) => {
+ 
+  try {
+    console.log({
+      phoneNumber, password, firstName, lastName, roleId, currency, language, address, rating
+    });
+    console.log("***");
+    const response = await ServerAPI.post('/users/signup', { phoneNumber, password, firstName, lastName, roleId, currency, language, address, rating });
+    await AsyncStorage.setItem('token', response.data.token);
+    dispatch({ type: 'signin', payload: response.data.token });
+
+    navigate('Main');
+  } catch (err) {
+    console.log(err);
+    dispatch({
+      type: 'add_error',
+      payload: 'Something went wrong with sign up'
+    });
+  }
+};
+
+const signin = dispatch => async ({ phoneNumber, password }) => {
+  try {
+    const response = await ServerAPI.post('/users/signin', { phoneNumber, password });
+    await AsyncStorage.setItem('token', response.data.token);
+    dispatch({ type: 'signin', payload: response.data.token});
+    const response2 = await ServerAPI.get('/users/info');
+    dispatch({ type: 'update_user', payload: response2.data});
+    navigate('Main');
+  } catch (err) {
+    dispatch({
+      type: 'add_error',
+      payload: 'Something went wrong with sign in'
+    });
+  }
+};
+
+const signout = dispatch => async () => {
+  await AsyncStorage.removeItem('token');
+  dispatch({ type: 'signout' });
+  navigate('ResolveAuth');
+};
+
+export const { Provider, Context } = createDataContext(
+  authReducer,
+  { signin, signout, signup, clearErrorMessage, tryLocalSignin },
+  { token: null, errorMessage: '', userInfo: null }
+);
